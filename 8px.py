@@ -1,9 +1,11 @@
 from PIL import Image
 import numpy
 import sys
+import itertools
 
 image = Image.open(sys.argv[1]).convert('1')
 data = numpy.asarray(image)
+
 strings = ["B"]
 counter = 0
 for val in data.flat:
@@ -13,6 +15,10 @@ for val in data.flat:
     strings[-1] += "1" if val else "0"
     counter += 1
 
-print(", ".join(strings))
-
+for i, s in enumerate(strings):
+    print(s, end="")
+    if i != len(strings) - 1:
+        print(", ", end="")
+    if i % 2 != 0:
+        print()
 
