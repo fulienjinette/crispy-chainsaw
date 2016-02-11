@@ -16,9 +16,9 @@ for val in data.flat:
     counter += 1
 
 for i, s in enumerate(strings):
+    if i > 0 and i % 16 == 0:
+        print()
     print(s, end="")
     if i != len(strings) - 1:
         print(", ", end="")
-    if i % 2 != 0:
-        print()
 
